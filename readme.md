@@ -38,6 +38,32 @@ TrendTeller Stock Insights integrates sentiment analysis, topic modeling, and fi
 
 ### 📰 News Scraper Sentiment Analysis
 - **Description**: Scrapes news from Google News for the past 24 hours, analyzes sentiment, and saves the results as a CSV file.
+
+- **Model**: 
+   1. [SpaCy's English language model](https://spacy.io/models/en) (click to check the documentation)
+
+      > en_core_web_sm
+
+      - Tokenization: Splits text into words, punctuation, and other meaningful elements.
+
+      - Part-of-Speech (POS) tagging: Identifies the grammatical categories (nouns, verbs, etc.) of words.
+
+      - Named Entity Recognition (NER): Detects entities like people, places, organizations, dates, and other proper nouns in text.
+
+      - Dependency Parsing: Analyzes the grammatical structure of a sentence and identifies relationships between words.
+
+      - Lemmatization: Reduces words to their base forms (e.g., "running" to "run").
+      
+   2. [Sentiment analysis model](https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment) (click to check the documentation)
+
+      > nlptown/bert-base-multilingual-uncased-sentiment
+
+      - Sentiment Classification: It predicts the sentiment of a given piece of text as one of five classes: 1-star (very negative) to 5-star (very positive).
+
+      - Multilingual: It can handle text in multiple languages, though it is uncased, meaning it ignores case (capitalization) during processing.
+
+      - BERT allows the model to understand context and nuances in text, which makes it more accurate for sentiment analysis than traditional models like bag-of-words approaches.
+
 - **Functionality**: Users can input stock tickers and receive sentiment scores along with lemmatized news headlines.
 
 ### 📅 Stock Data Fetcher
@@ -106,4 +132,5 @@ The application uses an SQLite database to store and manage data. The schema inc
    ```
 2. Access the application in your web browser at `http://localhost:8501`.
 
+<img src=image/streamlit_welcome_page.png>
 
