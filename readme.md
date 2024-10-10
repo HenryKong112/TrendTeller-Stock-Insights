@@ -85,10 +85,13 @@ The application uses an SQLite database to store and manage data. The schema inc
    cd TrendTeller-Stock-Insights
    ```
 2. Install required packages:
+
+   Python Version: Python 3.12.4
+
    ```bash
+   pip install -r requirements.txt
    pip install -U pip setuptools wheel
    python -m spacy download en_core_web_sm
-   pip install -r requirements.txt
    ```
 3. Ensure you have SQLite installed for database management.
 
