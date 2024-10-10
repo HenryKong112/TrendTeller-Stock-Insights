@@ -97,6 +97,8 @@ The application uses an SQLite database to store and manage data. The schema inc
 
 4. Install [Bardeen AI](https://chromewebstore.google.com/detail/bardeen-automate-browser/ihhkmalpkhkoedlmcnilbbhhbhnicjga?pli=1) for scrapping [Stocktwits](https://stocktwits.com/) comments.
 
+   *Watch how to use:* [Bardeen AI](https://youtu.be/jyIMIspz4vo)
+
 ## ▶️ Usage
 1. Run the Streamlit application:
    ```bash

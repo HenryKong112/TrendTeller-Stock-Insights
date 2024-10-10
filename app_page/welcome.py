@@ -39,7 +39,7 @@ def main():
                 <li>**Stock Data Fetcher:** Fetch stock price data for specific tickers.</li>
                 <li>**StockTwits Comment Sentiment Analysis:** Analyze sentiment on StockTwits comments from a CSV file.</li>
                 <li>**Topic Modeling LDA Analysis:** Run LDA to identify key topics and trends.</li>
-                <li>**Report:** Visualization of sentiment trends and the correlation between sentiment, stock prices, and trading volumes.
+                <li>**Sentiment Report:** Visualization of sentiment trends and the correlation between sentiment, stock prices, and trading volumes.
             </ol>
         </div>
     """, unsafe_allow_html=True)
