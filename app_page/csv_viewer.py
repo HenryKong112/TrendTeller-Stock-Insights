@@ -37,7 +37,7 @@ def folder(foldername):
 
 def main():
     st.title("CSV Viewer")
-    st.write("You can view the CSV files containing the collected news and comments here."
+    st.write("You can view the CSV files containing the collected news, comments and stock here."
              " The average sentiment value is also calculated for relevant datasets.")
     
     # Display the folders and their content with individual checkboxes for showing/hiding

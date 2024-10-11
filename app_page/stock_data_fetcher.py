@@ -26,8 +26,6 @@ def main():
             stock_data = yf.download(ticker, start=start_date, end=end_date)
 
             if not stock_data.empty:  # Check if any data was returned
-                # Display the stock data in the app
-                st.write(stock_data)
                 
                 # Create a candlestick chart
                 fig = go.Figure(data=[go.Candlestick(
@@ -64,6 +62,9 @@ def main():
                     height=600
                 )
 
+                # Display the stock data in the app
+                st.write(stock_data)
+                
                 # Customize axes
                 fig.update_xaxes(showgrid=True, gridcolor='gray')
                 fig.update_yaxes(showgrid=True, gridcolor='gray')

@@ -58,7 +58,7 @@ def get_stock_comments(stock_ticker):
         # Save the cleaned dataset back to the CSV file
         df.to_csv(file_path, index=False)
         
-        st.success("Data cleaned and saved!")  # Inform user of successful cleaning
+        st.success(f"Data saved to {file_path} ")  # Inform user of successful cleaning
         st.write(df)  # Display the cleaned dataset
 
     except FileNotFoundError:
