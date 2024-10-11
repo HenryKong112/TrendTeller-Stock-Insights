@@ -2,7 +2,7 @@ import streamlit as st
 from app_page.csv_viewer import main as csv_viewer_main
 from app_page.news_scraper_sentiment_analysis import main as news_scraper_main
 from app_page.stock_data_fetcher import main as stock_data_fetcher_main
-from app_page.stocktwit_comment_sentiment_analysis import main as stocktwit_analysis_main
+from app_page.stocktwits_comment_sentiment_analysis import main as stocktwit_analysis_main
 from app_page.topic_modeling_lda_analysis import lda_workflow
 import dataset.database as db
 import app_page.welcome as welcome
@@ -26,7 +26,7 @@ def main():
                                        "CSV Viewer", 
                                        "News Scraper Sentiment Analysis", 
                                        "Stock Data Fetcher", 
-                                       "StockTwit Comment Sentiment Analysis", 
+                                       "StockTwits Comment Sentiment Analysis", 
                                        "Topic Modeling LDA Analysis",
                                        "Sentiment Report"])
 
@@ -45,7 +45,7 @@ def main():
         news_scraper_main()  # Calls the main function of News Scraper Sentiment Analysis
     elif app_mode == "Stock Data Fetcher":
         stock_data_fetcher_main()  # Calls the main function of Stock Data Fetcher
-    elif app_mode == "StockTwit Comment Sentiment Analysis":
+    elif app_mode == "StockTwits Comment Sentiment Analysis":
         stocktwit_analysis_main()  # Calls the main function of StockTwit Comment Sentiment Analysis
     elif app_mode == "Topic Modeling LDA Analysis":
         lda_workflow()  # Calls the LDA workflow function for Topic Modeling
