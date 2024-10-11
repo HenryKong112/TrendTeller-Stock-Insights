@@ -6,16 +6,17 @@
 ## 🗂️ Table of Contents
 1. [Overview](#🌟-overview)
 2. [Key Features](#🚀-key-features)
-3. [Applications](#🛠️-applications)
+3. [NLP Model](#NLP-Model)
+4. [Applications](#🛠️-applications)
     - [CSV Viewer](#🗃️-csv-viewer)
     - [News Scraper Sentiment Analysis](#📰-news-scraper-sentiment-analysis)
     - [Stock Data Fetcher](#📅-stock-data-fetcher)
     - [StockTwits Comment Sentiment Analysis](#💬-stocktwits-comment-sentiment-analysis)
     - [Topic Modeling LDA Analysis](#🧩-topic-modeling-lda-analysis)
     - [Sentiment Report](#🔗-Sentiment-Report)
-4. [Database Schema](#🗃️-database-schema)
-5. [Installation](#⚙️-installation)
-6. [Usage](#▶️-usage)
+5. [Database Schema](#🗃️-database-schema)
+6. [Installation](#⚙️-installation)
+7. [Usage](#▶️-usage)
 
 
 ## 🌟 Overview
@@ -30,40 +31,53 @@ TrendTeller Stock Insights integrates sentiment analysis, topic modeling, and fi
 - **📊 Data Visualization**: View trends using interactive charts and graphs.
 - **🗄️ Database Management**: Store and manage comments and news headlines in an SQLite database.
 
-## 🛠️ Applications
-
-### 🗃️ CSV Viewer
-- **Description**: View CSV files containing StockTwits comments and news data.
-- **Functionality**: Users can browse and display CSV files from the `dataset/news` and `dataset/comments` folders.
-
-### 📰 News Scraper Sentiment Analysis
-- **Description**: Scrapes news from Google News for the past 24 hours, analyzes sentiment, and saves the results as a CSV file.
-
+## NLP Model
 - **Model**: 
    1. [SpaCy's English language model](https://spacy.io/models/en) (click to check the documentation)
 
       > en_core_web_sm
 
-      - Tokenization: Splits text into words, punctuation, and other meaningful elements.
+      - **Tokenization:** Splits text into words, punctuation, and other meaningful elements.
 
-      - Part-of-Speech (POS) tagging: Identifies the grammatical categories (nouns, verbs, etc.) of words.
+      - **Part-of-Speech (POS) tagging:** Identifies the grammatical categories (nouns, verbs, etc.) of words.
 
-      - Named Entity Recognition (NER): Detects entities like people, places, organizations, dates, and other proper nouns in text.
+      - **Named Entity Recognition (NER):** Detects entities like people, places, organizations, dates, and other proper nouns in text.
 
-      - Dependency Parsing: Analyzes the grammatical structure of a sentence and identifies relationships between words.
+      - **Dependency Parsing:** Analyzes the grammatical structure of a sentence and identifies relationships between words.
 
-      - Lemmatization: Reduces words to their base forms (e.g., "running" to "run").
+      - **Lemmatization:** Reduces words to their base forms (e.g., "running" to "run").
       
    2. [Sentiment analysis model](https://huggingface.co/nlptown/bert-base-multilingual-uncased-sentiment) (click to check the documentation)
 
       > nlptown/bert-base-multilingual-uncased-sentiment
 
-      - Sentiment Classification: It predicts the sentiment of a given piece of text as one of five classes: 1-star (very negative) to 5-star (very positive).
+      - **Sentiment Classification:** It predicts the sentiment of a given piece of text as one of five classes: 1 (very negative) to 5 (very positive).
 
-      - Multilingual: It can handle text in multiple languages, though it is uncased, meaning it ignores case (capitalization) during processing.
+      - **Multilingual:** It can handle text in multiple languages, though it is uncased, meaning it ignores case (capitalization) during processing.
 
       - BERT allows the model to understand context and nuances in text, which makes it more accurate for sentiment analysis than traditional models like bag-of-words approaches.
 
+    3. [Latent Dirichlet Allocation (LDA) model](https://radimrehurek.com/gensim/models/ldamodel.html) (click to check the documentation)
+ 
+       > Gensim's LDA implementation
+       
+       - **Topic Modeling:** Discovers hidden thematic structures (topics) within a collection of documents.
+      
+       - **Input:** A collection of documents (e.g., news title, comments) represented as a bag of words or TF-IDF matrix.
+      
+       - **Output:** Assigns probabilities to words belonging to topics, revealing underlying topics within the text.
+      
+       - **Use Case:** Effective for analyzing large text datasets, such as financial articles and StockTwits comments, to uncover trends in stock market discussions.
+
+
+## 🛠️ Applications
+
+### 🗃️ CSV Viewer
+- **Description**: View CSV files containing StockTwits comments and news data.
+- **Functionality**: Users can browse and display CSV files from the `dataset/news`, `dataset/comments`, and `dataset/stock` folders.
+
+### 📰 News Scraper Sentiment Analysis
+- **Description**: Scrapes news from Google News for the past 24 hours, analyzes sentiment, and saves the results as a CSV file.
 - **Functionality**: Users can input stock tickers and receive sentiment scores along with lemmatized news headlines.
 
 ### 📅 Stock Data Fetcher
