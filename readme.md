@@ -148,3 +148,5 @@ The application uses an SQLite database to store and manage data. The schema inc
 
 <img src=image/streamlit_welcome_page.png>
 
+3. Follow the [Instruction](./TrendTeller_Instruction.pdf) .
+
