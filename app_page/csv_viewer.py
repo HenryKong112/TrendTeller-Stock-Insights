@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 
 def load_data(file_path):
     """Load CSV data from a specified file path."""
@@ -30,6 +31,23 @@ def folder(foldername):
                 if 'sentiment' in df.columns:
                     average_value = df['sentiment'].mean().__round__(3)
                     st.write("Average value of sentiment: ", average_value)
+
+                    # Create a pie chart for sentiment distribution
+                    sentiment_counts = df['sentiment'].value_counts()
+                    sentiment_labels = [f"{label} ({count/sum(sentiment_counts)*100:.1f}%)" 
+                                        for label, count in zip(sentiment_counts.index, sentiment_counts)]
+
+                    fig, ax = plt.subplots()
+
+                    # Create the pie chart without showing percentages on the pie itself
+                    wedges, _ = ax.pie(sentiment_counts, startangle=90)
+
+                    ax.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
+
+                    # Add a legend with percentages
+                    ax.legend(wedges, sentiment_labels, title="Sentiment", loc="center left", bbox_to_anchor=(1, 0, 0.5, 1))
+
+                    st.pyplot(fig)
             
             st.markdown('---')
     else:
@@ -37,9 +55,8 @@ def folder(foldername):
 
 def main():
     st.title("CSV Viewer")
-    st.write("You can view the CSV files containing the collected news, comments and stock here."
-             " The average sentiment value is also calculated for relevant datasets.")
-    
+    st.write("Explore CSV files with collected news, comments, and stock data. For relevant datasets, the average sentiment value is calculated and displayed. Additionally, a pie chart illustrates the sentiment distribution.")
+
     # Display the folders and their content with individual checkboxes for showing/hiding
     folder('news')     # View and process CSVs from 'news' folder
     folder('comments') # View and process CSVs from 'comments' folder
@@ -47,6 +64,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
 
 
 
