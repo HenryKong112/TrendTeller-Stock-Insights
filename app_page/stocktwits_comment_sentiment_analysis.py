@@ -39,15 +39,15 @@ def get_stock_comments(stock_ticker):
         df['Comment'] = df['Comment'].apply(clean_comment)
 
         df['Ticker'] = stock_ticker
-        
-        # Remove rows where the 'Comment' column is empty after cleaning
+
+        # Lemmatize cleaned comments to reduce words to their base form
+        df['Comment'] = df['Comment'].apply(lemmatize_comment)
+
+        # **Remove rows where the 'Comment' column is empty or contains only whitespace after cleaning**
         df = df[df['Comment'].str.strip() != '']
 
         # Remove duplicate rows based on 'Username' and 'Comment', keeping only the first occurrence
         df = df.drop_duplicates(subset=['Username', 'Comment'], keep='first')
-
-        # Lemmatize cleaned comments to reduce words to their base form
-        df['Comment'] = df['Comment'].apply(lemmatize_comment)
 
         # Load sentiment analysis model and tokenizer
         tokenizer, model = load_sentiment_model()
@@ -76,7 +76,8 @@ def clean_comment(comment):
     comment = re.sub(r'[^A-Za-z0-9\s]+', '', comment)  # Remove special characters
     comment = re.sub(r'\s+', ' ', comment)  # Normalize multiple spaces to a single space
     comment = comment.lower()  # Convert to lowercase
-    return comment.strip()  # Return cleaned comment without leading/trailing spaces
+    comment = comment.replace('bearish', '').replace('bullish', '').strip()  # Remove "bearish" and "bullish"
+    return comment  # Return cleaned comment without leading/trailing spaces
 
 def lemmatize_comment(comment):
     """Lemmatizes the cleaned comments to their base form."""
