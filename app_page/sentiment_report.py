@@ -93,6 +93,9 @@ def main():
         ax1[2].set_xlabel('Date')
         ax1[2].grid(True)
 
+        # Rotate the x-axis labels
+        plt.setp(ax1[2].xaxis.get_majorticklabels(), rotation=45)
+        
         st.pyplot(fig)
 
     with tab2:
