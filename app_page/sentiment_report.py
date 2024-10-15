@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 import streamlit as st
 
 def main():
@@ -104,7 +105,14 @@ def main():
 
         with col1:
             plt.figure(figsize=(6, 4))
+            # Scatter plot for StockTwits Sentiment vs Stock Price
             plt.scatter(twits_stock_df['sentiment'], twits_stock_df['Adj Close'], alpha=0.5, color='red')
+
+            # Regression line for StockTwits Sentiment vs Stock Price
+            z = np.polyfit(twits_stock_df['sentiment'], twits_stock_df['Adj Close'], 1)
+            p = np.poly1d(z)
+            plt.plot(twits_stock_df['sentiment'], p(twits_stock_df['sentiment']), color='black', linestyle='--')
+
             plt.title('StockTwits Sentiment vs Stock Price')
             plt.xlabel('StockTwits Sentiment')
             plt.ylabel('Adjusted Close Price')
@@ -113,20 +121,34 @@ def main():
 
         with col2:
             plt.figure(figsize=(6, 4))
+            # Scatter plot for News Sentiment vs Stock Price
             plt.scatter(news_stock_df['sentiment'], news_stock_df['Adj Close'], alpha=0.5, color='blue')
+
+            # Regression line for News Sentiment vs Stock Price
+            z = np.polyfit(news_stock_df['sentiment'], news_stock_df['Adj Close'], 1)
+            p = np.poly1d(z)
+            plt.plot(news_stock_df['sentiment'], p(news_stock_df['sentiment']), color='black', linestyle='--')
+
             plt.title('News Sentiment vs Stock Price')
             plt.xlabel('News Sentiment')
             plt.ylabel('Adjusted Close Price')
             plt.grid(True)
             st.pyplot(plt)
-    
+
     with tab3:
         st.subheader('Scatter Plot: Sentiment vs Stock Volume')
         col1, col2 = st.columns(2)
 
         with col1:
             plt.figure(figsize=(6, 4))
+            # Scatter plot for StockTwits Sentiment vs Stock Volume
             plt.scatter(twits_stock_df['sentiment'], twits_stock_df['Volume'], alpha=0.5, color='red')
+
+            # Regression line for StockTwits Sentiment vs Stock Volume
+            z = np.polyfit(twits_stock_df['sentiment'], twits_stock_df['Volume'], 1)
+            p = np.poly1d(z)
+            plt.plot(twits_stock_df['sentiment'], p(twits_stock_df['sentiment']), color='black', linestyle='--')
+
             plt.title('StockTwits Sentiment vs Stock Volume')
             plt.xlabel('StockTwits Sentiment')
             plt.ylabel('Stock Volume')
@@ -135,13 +157,21 @@ def main():
 
         with col2:
             plt.figure(figsize=(6, 4))
+            # Scatter plot for News Sentiment vs Stock Volume
             plt.scatter(news_stock_df['sentiment'], news_stock_df['Volume'], alpha=0.5, color='blue')
+
+            # Regression line for News Sentiment vs Stock Volume
+            z = np.polyfit(news_stock_df['sentiment'], news_stock_df['Volume'], 1)
+            p = np.poly1d(z)
+            plt.plot(news_stock_df['sentiment'], p(news_stock_df['sentiment']), color='black', linestyle='--')
+
             plt.title('News Sentiment vs Stock Volume')
             plt.xlabel('News Sentiment')
             plt.ylabel('Stock Volume')
             plt.grid(True)
             st.pyplot(plt)
-    
+
+
     # Close the database connection
     conn.close()
 
