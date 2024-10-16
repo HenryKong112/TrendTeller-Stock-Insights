@@ -4,20 +4,20 @@
 **TrendTeller Stock Insights** is a powerful application that leverages natural language processing (NLP) and financial data analysis to provide actionable insights into stock market trends. It performs sentiment analysis on news headlines and StockTwits comments, while also identifying key topics through LDA (Latent Dirichlet Allocation) topic modeling. By correlating sentiment data with stock price movements and trading volume, the application aids investors and analysts in making data-driven decisions.
 
 ## 🗂️ Table of Contents
-1. [Overview](#🌟-overview)
-2. [Key Features](#🚀-key-features)
-3. [NLP Model](#NLP-Model)
-4. [Applications](#🛠️-applications)
-    - [CSV Viewer](#🗃️-csv-viewer)
-    - [News Scraper Sentiment Analysis](#📰-news-scraper-sentiment-analysis)
-    - [Stock Data Fetcher](#📅-stock-data-fetcher)
-    - [StockTwits Comment Sentiment Analysis](#💬-stocktwits-comment-sentiment-analysis)
-    - [Topic Modeling LDA Analysis](#🧩-topic-modeling-lda-analysis)
-    - [Sentiment Report](#🔗-Sentiment-Report)
-5. [Database Schema](#🗃️-database-schema)
+1. [Overview](#-overview)
+2. [Key Features](#-key-features)
+3. [NLP Model](#nlp-model)
+4. [Applications](#️-applications)
+    - [CSV Viewer](#️-csv-viewer)
+    - [News Scraper Sentiment Analysis](#-news-scraper-sentiment-analysis)
+    - [Stock Data Fetcher](#-stock-data-fetcher)
+    - [StockTwits Comment Sentiment Analysis](#-stocktwits-comment-sentiment-analysis)
+    - [Topic Modeling LDA Analysis](#-topic-modeling-lda-analysis)
+    - [Sentiment Report](#-sentiment-report)
+5. [Database Schema](#️-database-schema)
     - [Example Dataset](#example-dataset)
-6. [Installation](#⚙️-installation)
-7. [Usage](#▶️-usage)
+6. [Installation](#️-installation)
+7. [Usage](#️-usage)
 
 
 
