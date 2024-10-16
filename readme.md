@@ -15,6 +15,7 @@
     - [Topic Modeling LDA Analysis](#🧩-topic-modeling-lda-analysis)
     - [Sentiment Report](#🔗-Sentiment-Report)
 5. [Database Schema](#🗃️-database-schema)
+    - [Example Dataset](#example-dataset)
 6. [Installation](#⚙️-installation)
 7. [Usage](#▶️-usage)
 
