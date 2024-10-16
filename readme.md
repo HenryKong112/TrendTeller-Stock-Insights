@@ -19,6 +19,7 @@
 7. [Usage](#▶️-usage)
 
 
+
 ## 🌟 Overview
 TrendTeller Stock Insights integrates sentiment analysis, topic modeling, and financial data to help investors better understand market dynamics. It processes data from StockTwits and news sources, providing a clearer view of stock sentiment and potential price movements. The application also offers tools for data visualization and comprehensive correlation analysis.
 
@@ -117,6 +118,17 @@ The application uses an SQLite database to store and manage data. The schema inc
 | URL            | TEXT         | The URL of the news article |
 | sentiment      | INT          | Sentiment score from sentiment analysis (1-5 scale) |
 | search_query   | VARCHAR(256) | The search query used to find the news article |
+
+### Example dataset
+
+1. News with `search_query`: **Trump**
+
+2. Stocktwits_Comments of: **DJT**
+
+3. Stock price of: **DJT**
+
+From 2024-10-04 to 2024-10-16.
+
 
 ## ⚙️ Installation
 1. Clone the repository:
