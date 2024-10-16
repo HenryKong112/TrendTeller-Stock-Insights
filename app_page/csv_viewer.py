@@ -57,6 +57,13 @@ def main():
     st.title("CSV Viewer")
     st.write("Explore CSV files with collected news, comments, and stock data. For relevant datasets, the average sentiment value is calculated and displayed. Additionally, a pie chart illustrates the sentiment distribution.")
 
+    # Display with background color and emoji
+    st.markdown("""
+    <div style="background-color: #f9f7d9; padding: 10px; border-radius: 5px; font-size: 18px;">
+        ❗️ <b>Sentiment:</b> 1 (most negative) -- 5 (most positive)
+    </div>
+    """, unsafe_allow_html=True)
+    
     # Display the folders and their content with individual checkboxes for showing/hiding
     folder('news')     # View and process CSVs from 'news' folder
     folder('comments') # View and process CSVs from 'comments' folder
